@@ -4,8 +4,7 @@ import { ValidationError } from "../models/transaction";
 
 export const getUserByUuidController = (req: Request, res: Response) => {
     try {
-        const uuidFilter = req.params.uuid;
-        const userFound = selectUserByUuid(uuidFilter)
+        const userFound = selectUserByUuid(req.body.userIndex)
         
         if (userFound) {
           res.status(200).json({

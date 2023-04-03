@@ -4,17 +4,17 @@ import { ValidationError } from "../models/user";
 
 export const getUsersController = (req: Request, res: Response) => {
   try {
-    const nameFilter = req.query.name
+    const nameFilter = req.query.name as string 
     if (typeof nameFilter !== 'string' && nameFilter !== undefined) {
       throw new ValidationError("Nome informado invalido.");
     }
 
-    const cpfFilter = req.query.cpf
+    const cpfFilter = req.query.cpf as string
     if (typeof cpfFilter !== 'string' && cpfFilter !== undefined) {
       throw new ValidationError("CPF informado invalido.");
     }
 
-    const emailFilter = req.query.email
+    const emailFilter = req.query.email as string
     if (typeof emailFilter !== 'string' && emailFilter !== undefined) {
       throw new ValidationError("Email informado invalido.");
     }
